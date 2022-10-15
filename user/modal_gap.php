@@ -14,10 +14,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-dialog-scrollable">
-                <img src="../images/petition/<?php echo $modal_gap['img'] ?>" class="img-fluid" alt="...">
+                <img src="<?php echo $modal_gap['img'] ?>" class="img-fluid" alt="...">
             </div>
                 </div>
             <div class="modal-footer">
+                <button type="button"  class="btn btn-success m-2">เปิดหน้าต่างใหม่</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>

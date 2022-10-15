@@ -79,7 +79,7 @@
         var petid = $(this).attr('petid');
         var id = $(this).attr('id');
 
-        console.log(id);
+        // console.log(id);
 
         if( id == 'radio1_'+petid ) {
             $("#dis3_"+ petid).show();

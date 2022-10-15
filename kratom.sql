@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 20, 2022 at 04:35 PM
+-- Generation Time: Oct 15, 2022 at 06:18 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -9925,18 +9925,17 @@ INSERT INTO `districts` (`id`, `zip_code`, `name_di`, `name_en`, `amphure_id`) V
 CREATE TABLE `img` (
   `id_img` int(10) UNSIGNED NOT NULL,
   `petition_id` varchar(33) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `img` varchar(41) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `status` int(11) DEFAULT '1',
-  `blockchain` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
+  `img` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `img`
 --
 
-INSERT INTO `img` (`id_img`, `petition_id`, `img`, `status`, `blockchain`) VALUES
-(16, '6', 'GAP_1679091c5a880faf6fb5e6087eb1b2dc.jpg', 1, NULL),
-(17, '10', 'GAP_d3d9446802a44259755d38e6d163e820.jpg', 1, NULL);
+INSERT INTO `img` (`id_img`, `petition_id`, `img`, `status`) VALUES
+(44, '10', 'https://bafybeihriit2nuhbinecv4ywe66c6o7ewpciljon72myjpbnm3rtrsszxy.ipfs.w3s.link/GAP_d3d9446802a44259755d38e6d163e820.jpg', 1),
+(45, '6', 'https://bafybeifbbv5sh24humt57daivnz5rga6ab7wh2a62omjg3wf424uokm33a.ipfs.w3s.link/GAP_1679091c5a880faf6fb5e6087eb1b2dc.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -9992,33 +9991,11 @@ CREATE TABLE `petition` (
 --
 
 INSERT INTO `petition` (`id_user`, `id_petition`, `species`, `quantity`, `address_farm`, `sub_area`, `area`, `province`, `zip_code`, `tel`, `status`, `petition_date`, `succes_date`, `approved`) VALUES
-(15, 6, 'www', 222, '222', '250703', '195', '16', '25130', '0622266723', 3, '2022-09-08 08:58:51', '2022-09-20 16:04:33', 1),
-(15, 10, 'eee', 555, '75', '800912', '844', '63', '80110', '0622266723', 3, '2022-09-19 14:15:06', '2022-09-20 16:08:50', 1),
-(16, 11, 'rrr', 22, '250703', '250703', '195', '16', '25130', '0655327100', 1, '2022-09-29 15:12:18', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `planting`
---
-
-CREATE TABLE `planting` (
-  `id_user` int(11) DEFAULT NULL,
-  `species` varchar(50) DEFAULT NULL,
-  `qty` int(11) DEFAULT NULL,
-  `planting_date` date DEFAULT NULL,
-  `note` text,
-  `id_plant` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `planting`
---
-
-INSERT INTO `planting` (`id_user`, `species`, `qty`, `planting_date`, `note`, `id_plant`) VALUES
-(9, 'ก้านแดง', 14, '2022-05-05', '-', 3),
-(9, 'ก้านเหลือง', 111, '2022-08-05', 'หหห', 4),
-(9, 'ก้านแดง', 20, '2022-08-09', '---', 5);
+(15, 6, 'www', 222, '222', '250703', '195', '16', '25130', '0622266723', 3, '2022-09-08 08:58:51', '2022-10-15 17:52:12', 1),
+(15, 10, 'eee', 555, '75', '800912', '844', '63', '80110', '0622266723', 3, '2022-09-19 14:15:06', '2022-10-15 17:49:04', 1),
+(16, 11, 'rrr', 22, '250703', '250703', '195', '16', '25130', '0655327100', 2, '2022-09-29 15:12:18', NULL, NULL),
+(16, 12, 'ก้านแดง', 50, '222', '931004', '963', '73', '93210', '0622266723', 2, '2022-09-21 09:35:52', NULL, NULL),
+(15, 13, 'ก้านแดง', 200, '392/2', '931004', '963', '73', '93210', '0622266723', 2, '2022-09-24 16:14:22', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10141,7 +10118,9 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `name`, `lastname`, `user
 (10, 'film', '81dc9bdb52d04dc20036dbd8313ed055', 'วัชรินทร์', 'โรจเรณุมาศ', 2, 1),
 (11, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'admin', 'admin', 2, 1),
 (15, 'filmm09615', '81dc9bdb52d04dc20036dbd8313ed055', 'วัชรินทร์', 'โรจเรณุมาศ', 1, 1),
-(16, 'banz', 'e10adc3949ba59abbe56e057f20f883e', 'เบนซ์', 'เบนซ์', 1, 1);
+(16, 'banz', 'e10adc3949ba59abbe56e057f20f883e', 'เบนซ์', 'เบนซ์', 1, 1),
+(17, 'filmm123', 'e10adc3949ba59abbe56e057f20f883e', 'วัชรินทร์ ', 'โรจเรณุ', 2, 1),
+(18, 'admin11', 'e10adc3949ba59abbe56e057f20f883e', 'วัช', 'โรจ', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -10172,12 +10151,6 @@ ALTER TABLE `petition`
   ADD PRIMARY KEY (`id_petition`);
 
 --
--- Indexes for table `planting`
---
-ALTER TABLE `planting`
-  ADD PRIMARY KEY (`id_plant`);
-
---
 -- Indexes for table `provinces`
 --
 ALTER TABLE `provinces`
@@ -10203,19 +10176,13 @@ ALTER TABLE `amphures`
 -- AUTO_INCREMENT for table `img`
 --
 ALTER TABLE `img`
-  MODIFY `id_img` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_img` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `petition`
 --
 ALTER TABLE `petition`
-  MODIFY `id_petition` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `planting`
---
-ALTER TABLE `planting`
-  MODIFY `id_plant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_petition` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -10227,7 +10194,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

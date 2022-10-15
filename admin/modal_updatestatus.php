@@ -5,7 +5,7 @@
 
 ?>
     <div class="modal-dialog modal-xl">
-        <form id="upload-form<?php echo $row_am['id_petition'] ?>" action="" method="post" enctype="multipart/form-data">
+        <form action='update_status_db.php' id="upload-form<?php echo $row_am['id_petition'] ?>" method="post" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">คำร้องของคุณ <?php echo $row_modal['name']." ".$row_modal['lastname']; ?></h5>
@@ -70,11 +70,11 @@
                             <dd class="col-sm-8" id="dis4_<?= $row_am['id_petition'] ?>" style="display:none">
                                 <input class="form-control" type="file" name='image' id="image_<?= $row_am['id_petition'] ?>" onchange="readURL(this);" accept="image/jpeg">
                                 <img id="display" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"/>
-                                <input type="hidden" name="cid_<?= $row_am['id_petition'] ?>" id="cid"> 
+                                <input type="hidden" name="cid" id="cid_<?= $row_am['id_petition'] ?>"> 
                             </dd>
                             <dt class="col-sm-4"></dt>
                             <dd class="col-sm-8">
-                                    <button type="submit" onclick='' for="updatestatus" class="btn btn-primary text-sm-end">บันทึก</button>
+                                    <button type="submit" for="updatestatus" class="btn btn-primary text-sm-end">บันทึก</button>
                             </dd>
                         </dl>
                     </div>
@@ -90,69 +90,88 @@
 
         //   import { Web3Storage, getFilesFromPath } from 'https://cdn.jsdelivr.net/npm/web3.storage/dist/bundle.esm.min.js'
         import { Web3Storage } from 'https://cdn.jsdelivr.net/npm/web3.storage/dist/bundle.esm.min.js'
-        const form = document.querySelector('#upload-form<?= $row_am['id_petition'] ?>')
+        const form = document.getElementById('upload-form<?= $row_am['id_petition'] ?>')
 
     
         form.addEventListener('submit', async function (event) {
-        // don't reload the page!    
-        event.preventDefault()
+        
         // const petID = document.querySelector('#petid')
         const filepicker = document.querySelector('#image_<?= $row_am['id_petition'] ?>')
-        console.log('****0');
+        console.log('loading....1');
         
 
 
         if (filepicker.files.length == 1) {
-            console.log(filepicker);
-            console.log('****0.5');
-            console.log(filepicker.value);
-            console.log(filepicker.name);
-            console.log(filepicker.files[0].name);
-            console.log('***2');
-            console.log(filepicker.files[0].type);
-            console.log('***1');
+            // don't reload the page!    
+            event.preventDefault()
+            // console.log(filepicker);
+            // console.log('****0.5');
+            // console.log(filepicker.value);
+            // console.log(filepicker.name);
+            // console.log(filepicker.files[0].name);
+            // console.log('***2');
+            // console.log(filepicker.files[0].type);
+            // console.log('***1');
+            console.log('loading....2');
+
             const file = filepicker.files[0];
 
             const newname = "GAP_"+"<?= MD5($row_am['id_petition'])?>"+".jpg"
 
             const renamefile = rename(file,newname)
-            console.log(filepicker.files);
-            console.log('***0.22223');
-            console.log(filepicker.files[0].name);
-            console.log('***0.22');
+            // console.log(filepicker.files);
+            // console.log('***0.22223');
+            // console.log(filepicker.files[0].name);
+            // console.log('***0.22');
 
-            console.log('******1');
-            console.log(filepicker);
-            console.log('******2');
+            // console.log('******1');
+            // console.log(filepicker);
+            // console.log('******2');
             // console.log(document.getElementById('filepicker').value);
-            console.log(filepicker.files[0].name);
+            // console.log(filepicker.files[0].name);
             // filepicker.files[0].name = "GAP-xxxxxxxx";
-            console.log('******3');
+            // console.log('******3');
             // const filename = filepicker.files[0].name;
+            console.log('loading....3');
             
             const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGJGMzM0NTdENGE3N2ZkRjk4MkJGOEYxOTM3NEE3QjNhM0NjOGQ3RkUiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjUyOTY4NTM0MTYsIm5hbWUiOiJrcmF0b20ifQ.3oNEp3dX5idsZSuwkPBm6yj0GX-VlWCGN3fu145gx98"
-            console.log('******7');
+            // console.log('******7');
             const client = new Web3Storage({ token: token })
-            console.log('******8');
-            console.log(client)
+            // console.log('******8');
+            // console.log(client)
 
             const files = filepicker.files
 
             const filename = filepicker.files[0].name
+            console.log('loading....4');
 
-            console.log(files);
+            // console.log(files);
             const cid = await client.put(files, {
             onRootCidReady: (localCid) => {
-                console.log(localCid);          }
+                // console.log(localCid);          
+            }
             })
+            console.log('loading....5');
+
             const link = "https://"+cid+".ipfs.w3s.link/"+filename
-            console.log(link)
-            let a = document.getElementByName('cid_<?= $row_am['id_petition'] ?>')
-            a.setAttribute('cid_<?= $row_am['id_petition'] ?>',link)
-            console.log(document.getElementByName("cid_<?= $row_am['id_petition'] ?>").value);
+            // console.log(link)
+            var a =  document.getElementById('cid_<?= $row_am['id_petition'] ?>')
+            a.value = link
+            console.log('loading....6');
+
+            // console.log(a.value);
+            console.log('succeed');
+            form.submit();
+
+            // form.action = 'update_status_db.php'
             
+        }else{
+            console.log('succeed2');
+            form.submit();
+            // form.action = 'update_status_db.php'
+
         }
-        console.log('****1.5');
+        
 
         
         
