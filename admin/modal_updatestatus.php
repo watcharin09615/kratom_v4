@@ -98,6 +98,7 @@
         // const petID = document.querySelector('#petid')
         const filepicker = document.querySelector('#image_<?= $row_am['id_petition'] ?>')
         console.log('loading....1');
+        $("#spinner").show();
         
 
 

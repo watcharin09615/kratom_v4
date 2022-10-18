@@ -16,7 +16,7 @@
                 <div class="row mb-3">
                     <label for="id_user" class="col-sm-2 col-form-label">ผู้ใช้</label>
                     <div class="col-sm-10">
-                    <select class="form-select" name="id_user" id="id_user" aria-label="Floating label select example" require>
+                    <select class="form-select" name="id_user" id="id_user" aria-label="Floating label select example" required>
                         <option selected="">--โปรดเลือก--</option>
                         <?php foreach($result3 as $results){?>
                             <option value="<?php echo $results["id_user"];?>">
@@ -55,7 +55,7 @@
 
                     <label for="address" class="col-sm-1 col-form-label">จังหวัด</label>
                     <div class="col-sm-4">
-                    <select class="form-select" name="provinces" id="provinces" aria-label="Floating label select example" require>
+                    <select class="form-select" name="provinces" id="provinces" aria-label="Floating label select example" required>
                         <option value="" selected disabled>-กรุณาเลือกจังหวัด-</option>
                             <?php foreach ($pro as $value) { ?>
                                 <option value="<?=$value['id']?>"><?=$value['name_pr']?></option>
@@ -68,12 +68,12 @@
                     <legend class="col-form-label col-sm-2 pt-0"></legend>
                         <label for="amphures" class="col-sm-2 col-form-label">อำเภอ/เขต</label>
                         <div class="col-sm-3">
-                            <select class="form-select" name="amphures" id="amphures" aria-label="Floating label select example" require>
+                            <select class="form-select" name="amphures" id="amphures" aria-label="Floating label select example" required>
                             </select>
                         </div>
                         <label for="districts" class="col-sm-2 col-form-label">ตำบล/แขวง</label>
                         <div class="col-sm-3">
-                            <select class="form-select" name="districts" id="districts" aria-label="Floating label select example" require>
+                            <select class="form-select" name="districts" id="districts" aria-label="Floating label select example" required>
                             </select>
                         </div>
                 </div>
@@ -81,13 +81,13 @@
                     <legend class="col-form-label col-sm-2 pt-0"></legend>
                         <label for="zip_code" class="col-sm-2 col-form-label">รหัสไปรษณีย์</label>
                         <div class="col-sm-2">
-                            <input class="form-control" type="text" id="zip_code" name="zip_code" require>
+                            <input class="form-control" type="text" pattern="^[0-9]+.+$" id="zip_code" name="zip_code" required>
                         </div>
                 </div>
                 <div class="row mb-3">
                     <legend class="col-form-label col-sm-2 pt-0">เบอร์โทร</legend>
                         <div class="col-sm-4">
-                            <input class="form-control" type="tel" id="tel" name="tel" maxlength="10" require>
+                            <input class="form-control" type="tel" id="tel" pattern="^[0-9]+.+$" name="tel" maxlength="10" required>
                         </div>
                 </div>
                 
