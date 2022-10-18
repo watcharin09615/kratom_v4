@@ -55,7 +55,7 @@
                         <div><br></div>
                             <dt class="col-sm-4" id="dis1_<?= $row_am['id_petition'] ?>" style="display:none">ผลการอนุมัติ</dt>
                             <dd class="col-sm-8" id="dis2_<?= $row_am['id_petition'] ?>" style="display:none">
-                            <div class="btn-group" role="group" >
+                            <div class="btn-group" role="group">
                             
                                         <input ra="<?= $row_am['id_petition'] ?>" type="radio" class="btn-check" name="approved" id="radio1_<?= $row_am['id_petition'] ?>" petid="<?= $row_am['id_petition'] ?>" value='1' autocomplete="off" >
                                         <label class="btn btn-outline-primary" id="radio1text" for="radio1_<?= $row_am['id_petition'] ?>">อนุมัติ</label>
@@ -148,7 +148,7 @@
             // console.log(files);
             const cid = await client.put(files, {
             onRootCidReady: (localCid) => {
-                // console.log(localCid);          
+                console.log(localCid);          
             }
             })
             console.log('loading....5');

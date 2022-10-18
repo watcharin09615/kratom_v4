@@ -6,7 +6,7 @@
     include('header.php');
 
     
-    $query = "SELECT * FROM petition WHERE id_user = $user_id" or die("Error:" . mysqli_error($con));
+    $query = "SELECT * FROM petition WHERE id_user = $user_id ORDER BY petition.id_petition DESC" or die("Error:" . mysqli_error($con));
 
     $result = mysqli_query($con, $query);
  
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>HOME</a>
+                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>หน้าแรก</a>
                     <div class="nav-item dropdown">
                     </div>
                     <a href="list_petition.php" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>รายการคำขอ</a>
@@ -135,7 +135,7 @@
                                         <td class="text-success"> เสร็จสิ้น <?php if ($row_am['approved'] == 1) {
                                             ?> (อนุมัติ)<?php
                                         }elseif ($row_am['approved'] == 0) {
-                                            ?> (ไม่อนุมัติ) <?php
+                                            ?> <span class="text-danger"> (ไม่อนุมัติ) </span><?php
                                         } ?></td>
                                     <?php } ?>
                                     <td>

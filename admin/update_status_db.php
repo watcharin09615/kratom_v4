@@ -13,7 +13,8 @@ if ($status == 3) {
   $sql = "UPDATE petition SET status = '$status' ,approved = '$approved' ,succes_date = CURRENT_TIMESTAMP WHERE id_petition ='$id'";
   if ($approved == 1) {
       $link = $_POST['cid'];
-      $sql1 = "INSERT INTO img(petition_id,img) VALUES('$id','$link')";
+      $sql1 = "UPDATE petition SET img = '$link' WHERE id_petition ='$id'";
+
       $result2 = mysqli_query($con, $sql1) or die ("Error in query: $sql " . mysqli_error($con));
     
   }

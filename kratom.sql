@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 15, 2022 at 06:18 PM
+-- Generation Time: Oct 18, 2022 at 03:23 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -9585,7 +9585,7 @@ INSERT INTO `districts` (`id`, `zip_code`, `name_di`, `name_en`, `amphure_id`) V
 ('931001', 93110, 'ป่าพะยอม', 'Pa Phayom', 963),
 ('931002', 93110, 'ลานข่อย', 'Lan Khoi', 963),
 ('931003', 93110, 'เกาะเต่า', 'Ko Tao', 963),
-('931004', 93110, 'บ้านพร้าว', 'Ban Phrao', 963),
+('931004', 93210, 'บ้านพร้าว', 'Ban Phrao', 963),
 ('931101', 93000, 'ชุมพล', 'Chumphon', 964),
 ('931102', 93000, 'บ้านนา', 'Ban Na', 964),
 ('931103', 93000, 'อ่างทอง', 'Ang Thong', 964),
@@ -9919,27 +9919,6 @@ INSERT INTO `districts` (`id`, `zip_code`, `name_di`, `name_en`, `amphure_id`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `img`
---
-
-CREATE TABLE `img` (
-  `id_img` int(10) UNSIGNED NOT NULL,
-  `petition_id` varchar(33) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `img` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `status` int(11) DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `img`
---
-
-INSERT INTO `img` (`id_img`, `petition_id`, `img`, `status`) VALUES
-(44, '10', 'https://bafybeihriit2nuhbinecv4ywe66c6o7ewpciljon72myjpbnm3rtrsszxy.ipfs.w3s.link/GAP_d3d9446802a44259755d38e6d163e820.jpg', 1),
-(45, '6', 'https://bafybeifbbv5sh24humt57daivnz5rga6ab7wh2a62omjg3wf424uokm33a.ipfs.w3s.link/GAP_1679091c5a880faf6fb5e6087eb1b2dc.jpg', 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `infouser`
 --
 
@@ -9983,19 +9962,17 @@ CREATE TABLE `petition` (
   `status` int(11) DEFAULT NULL,
   `petition_date` timestamp NULL DEFAULT NULL,
   `succes_date` timestamp NULL DEFAULT NULL,
-  `approved` int(11) DEFAULT NULL
+  `approved` int(11) DEFAULT NULL,
+  `img` varchar(130) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `petition`
 --
 
-INSERT INTO `petition` (`id_user`, `id_petition`, `species`, `quantity`, `address_farm`, `sub_area`, `area`, `province`, `zip_code`, `tel`, `status`, `petition_date`, `succes_date`, `approved`) VALUES
-(15, 6, 'www', 222, '222', '250703', '195', '16', '25130', '0622266723', 3, '2022-09-08 08:58:51', '2022-10-15 17:52:12', 1),
-(15, 10, 'eee', 555, '75', '800912', '844', '63', '80110', '0622266723', 3, '2022-09-19 14:15:06', '2022-10-15 17:49:04', 1),
-(16, 11, 'rrr', 22, '250703', '250703', '195', '16', '25130', '0655327100', 2, '2022-09-29 15:12:18', NULL, NULL),
-(16, 12, 'ก้านแดง', 50, '222', '931004', '963', '73', '93210', '0622266723', 2, '2022-09-21 09:35:52', NULL, NULL),
-(15, 13, 'ก้านแดง', 200, '392/2', '931004', '963', '73', '93210', '0622266723', 2, '2022-09-24 16:14:22', NULL, NULL);
+INSERT INTO `petition` (`id_user`, `id_petition`, `species`, `quantity`, `address_farm`, `sub_area`, `area`, `province`, `zip_code`, `tel`, `status`, `petition_date`, `succes_date`, `approved`, `img`) VALUES
+(19, 14, 'ก้านแดง', 200, '392/2 ม.9', '931004', '963', '73', '93210', '0622266723', 3, '2022-10-18 12:16:26', '2022-10-18 12:19:07', 1, 'https://bafybeibasd2mrs4k2caiopicbydxedw344sesrjria67n7krbtry26f7ji.ipfs.w3s.link/GAP_aab3238922bcc25a6f606eb525ffdc56.jpg'),
+(19, 15, 'ก้านเขียว', 40, '392/2', '931004', '963', '73', '93210', '0622266723', 2, '2022-10-18 13:59:35', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10114,13 +10091,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `name`, `lastname`, `user_type`, `user_status`) VALUES
-(9, 'ping', 'df911f0151f9ef021d410b4be5060972', 'ping', 'naphat', 2, 1),
-(10, 'film', '81dc9bdb52d04dc20036dbd8313ed055', 'วัชรินทร์', 'โรจเรณุมาศ', 2, 1),
-(11, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'admin', 'admin', 2, 1),
-(15, 'filmm09615', '81dc9bdb52d04dc20036dbd8313ed055', 'วัชรินทร์', 'โรจเรณุมาศ', 1, 1),
-(16, 'banz', 'e10adc3949ba59abbe56e057f20f883e', 'เบนซ์', 'เบนซ์', 1, 1),
-(17, 'filmm123', 'e10adc3949ba59abbe56e057f20f883e', 'วัชรินทร์ ', 'โรจเรณุ', 2, 1),
-(18, 'admin11', 'e10adc3949ba59abbe56e057f20f883e', 'วัช', 'โรจ', 2, 1);
+(11, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'วัชรินทร์', 'โรจเรณุมาศ', 2, 1),
+(19, 'kratom', 'e10adc3949ba59abbe56e057f20f883e', 'เกษตรกร', 'ปลูกกระท่อม', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -10137,12 +10109,6 @@ ALTER TABLE `amphures`
 --
 ALTER TABLE `districts`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `img`
---
-ALTER TABLE `img`
-  ADD PRIMARY KEY (`id_img`);
 
 --
 -- Indexes for table `petition`
@@ -10173,16 +10139,10 @@ ALTER TABLE `amphures`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
 
 --
--- AUTO_INCREMENT for table `img`
---
-ALTER TABLE `img`
-  MODIFY `id_img` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
-
---
 -- AUTO_INCREMENT for table `petition`
 --
 ALTER TABLE `petition`
-  MODIFY `id_petition` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_petition` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -10194,7 +10154,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

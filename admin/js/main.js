@@ -66,12 +66,14 @@
         if( id == 'btnradio3_'+petid ) {
             $("#dis1_"+ petid).show();
             $("#dis2_"+ petid).show();
+            jQuery("#radio1_"+ petid).attr('required', '');   
         }
         else {
             $("#dis1_"+ petid).hide();
             $("#dis2_"+ petid).hide();
             $("#dis3_"+ petid).hide();
             $("#dis4_"+ petid).hide();
+            jQuery("#radio1_"+ petid).removeAttr('required');
         }
     });
 
@@ -84,10 +86,14 @@
         if( id == 'radio1_'+petid ) {
             $("#dis3_"+ petid).show();
             $("#dis4_"+ petid).show();
+            jQuery("#image_"+ petid).attr('required', '');    
+
+          
         }
         else {
             $("#dis3_"+ petid).hide();
             $("#dis4_"+ petid).hide();
+            jQuery("#image_"+ petid).removeAttr('required');
         }
     });
 

@@ -71,12 +71,12 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>HOME</a>
+                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>หน้าแรก</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>MANAGE USERS</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="memberadmin.php" class="dropdown-item">ADMIN</a>
-                            <a href="memberuser.php" class="dropdown-item active">USER</a>
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>จัดการผู้ใช้</a>
+                        <div class="dropdown-menu bg-transparent border-0 show">
+                            <a href="memberadmin.php" class="dropdown-item">เจ้าหน้าที่</a>
+                            <a href="memberuser.php" class="dropdown-item active">เกษตรกร</a>
                         </div>
                     </div>
                     <a href="list_petition.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>รายการคำขอ</a>
@@ -97,8 +97,8 @@
             <div class="container-fluid pt-4 px-4">
             <div class="col-12">
                 <div class="bg-light rounded h-100 p-4">
-                    <h2 class="mb-4">สมาชิกผู้ใช้งานทั่วไป</h2>
-                    <button type="button" class="btn btn-info m-2" data-bs-toggle="modal" data-bs-target="#adduser">เพิ่มสมาชิก</button>
+                    <h2 class="mb-4">สมาชิกเกษตรกร</h2>
+                    <button type="button" class="btn btn-info m-2" data-bs-toggle="modal" data-bs-target="#adduser">เพิ่มเกษตรกร</button>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -107,8 +107,8 @@
                                     <th scope="col">ชื่อ</th>
                                     <th scope="col">นามสกุล</th>
                                     <th scope="col">Username</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Enable/Disable</th>
+                                    <th scope="col">สถานะการใช้งาน</th>
+                                    <th scope="col">เปิด/ปิดการใช้งาน</th>
                                 </tr>
                             </thead>
                             <?php 

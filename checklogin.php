@@ -14,7 +14,7 @@ session_start();
         $row = mysqli_fetch_array($result);
 
         $_SESSION["user_id"] = $row["id_user"];
-        $_SESSION["a_name"] = $row["name"];
+        $_SESSION["a_name"] = $row["name"]." ".$row["lastname"];
         $_SESSION["type"] = $row["user_type"];
         $_SESSION["status"] = $row["user_status"];
         if($_SESSION["user_id"]!=''){

@@ -20,7 +20,7 @@
                         <option selected="">--โปรดเลือก--</option>
                         <?php foreach($result3 as $results){?>
                             <option value="<?php echo $results["id_user"];?>">
-                                <?php echo $results["id_user"]." ".$results["name"]." ".$results["lastname"];?>
+                                <?php echo " ".$results["name"]." ".$results["lastname"];?>
                             </option>
                         <?php }?>
                     </select>

@@ -25,7 +25,7 @@
                 <div class="row mb-3">
                     <label for="username" class="col-sm-3 col-form-label">Username</label>
                     <div class="col-sm-6">
-                        <input class="form-control" type="text" id="username" name="username" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" require>
+                        <input class="form-control" type="text" id="username" name="username" pattern="^[a-zA-Z0-9]+.+$" title="ภาษาอังกฤษหรือตัวเลขหรือ . เท่านั้น" required>
                     </div>
                     
                 </div>
@@ -33,12 +33,12 @@
                 <div class="row g-4">
                     <label for="password" class="col-sm-4 col-form-label">Password</label>
                     <div class="col-sm-6">
-                        <input class="form-control" type="password" id="password" name="password" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" require>
+                        <input class="form-control" type="password" id="password" name="password" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" required>
                     </div>
                 </div> 
                 <br>
                 <div class="row g-4">
-                    <label for="confirmpassword" class="col-sm-4 col-form-label">Confirm Password</label>
+                    <label for="confirmpassword" class="col-sm-4 col-form-label">ยืนยัน Password</label>
                     <div class="col-sm-6">
                         <input class="form-control" type="password" id="confirmpassword" name="confirmpassword" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" required>
                         

@@ -6,7 +6,7 @@
     include('header.php');
 
     
-    $query = "SELECT * FROM user JOIN petition ON user.id_user = petition.id_user" or die("Error:" . mysqli_error($con));
+    $query = "SELECT * FROM user JOIN petition ON user.id_user = petition.id_user ORDER BY petition.id_petition DESC" or die("Error:" . mysqli_error($con));
 
     $result = mysqli_query($con, $query);
  
@@ -72,12 +72,12 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>HOME</a>
+                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>หน้าแรก</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>MANAGE USERS</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>จัดการผู้ใช้</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="memberadmin.php" class="dropdown-item">ADMIN</a>
-                            <a href="memberuser.php" class="dropdown-item ">USER</a>
+                            <a href="memberadmin.php" class="dropdown-item">เจ้าหน้าที่</a>
+                            <a href="memberuser.php" class="dropdown-item ">เกษตรกร</a>
                         </div>
                     </div>
                     <a href="list_petition.php" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>รายการคำขอ</a>
